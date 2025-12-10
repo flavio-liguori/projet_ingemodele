@@ -1,17 +1,17 @@
 [
     {
-        "type": "HERITAGE",
-        "concept_name": "Personne",
+        "type": "INTERFACE",
+        "concept_name": "ElectronicDevice",
         "classes_concernees": [
-            "Developer",
-            "Manager"
+            "Laptop",
+            "Smartphone"
         ],
         "elements_remontes": [
-            "name",
-            "salary",
-            "work()",
+            "brand",
+            "price",
+            "turnOn()",
             "rel_Types[is_primitive]"
         ],
-        "raison": "Entit\u00e9s humaines avec ID."
+        "raison": "Les classes partagent des comportements communs (turnOn) et des attributs (brand, price), mais leur nature diffère, justifiant une interface plutôt qu'une classe parente."
     }
 ]

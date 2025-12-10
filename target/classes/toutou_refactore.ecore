@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="company" nsURI="http://www.example.org/company" nsPrefix="company">
-  <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="//Personne">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="shop" nsURI="http://www.example.org/shop" nsPrefix="shop">
+  <eClassifiers xsi:type="ecore:EClass" name="Laptop" eSuperTypes="//ElectronicDevice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="brand">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="teamSize">
-      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    </eStructuralFeatures>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Developer" eSuperTypes="//Personne">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="language">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gpuModel">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Personne" abstract="true">
-    <eOperations name="work"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name">
+  <eClassifiers xsi:type="ecore:EClass" name="Smartphone" eSuperTypes="//ElectronicDevice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="brand">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price">
       <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="has5G">
+      <eType xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElectronicDevice" abstract="true" interface="true">
+    <eOperations name="turnOn"/>
   </eClassifiers>
 </ecore:EPackage>

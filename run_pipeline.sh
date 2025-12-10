@@ -11,24 +11,24 @@ NC='\033[0m' # No Color
 set -e
 
 echo -e "${BLUE}==============================================${NC}"
-echo -e "${BLUE}   PIPELINE IDM : EXTRACTION - RCA - GENAI    ${NC}"
+echo -e "${BLUE}   PIPELINE IDM : EXTRACTION - RCA - MISTRAL  ${NC}"
 echo -e "${BLUE}==============================================${NC}"
 
-# --- 1. GESTION DE LA CLÉ API (Optionnel) ---
-# Si la variable n'est pas déjà dans l'environnement, on la demande
-if [ -z "$GOOGLE_API_KEY" ]; then
-    echo -e "${YELLOW}[CONFIG] La variable GOOGLE_API_KEY n'est pas définie.${NC}"
-    read -s -p "Entrez votre clé API Google (ou appuyez sur Entrée pour le mode SIMULATION) : " USER_KEY
+# --- 1. GESTION DE LA CLÉ API (MISTRAL) ---
+# On vérifie maintenant la clé MISTRAL au lieu de Google
+if [ -z "$MISTRAL_API_KEY" ]; then
+    echo -e "${YELLOW}[CONFIG] La variable MISTRAL_API_KEY n'est pas définie.${NC}"
+    read -s -p "Entrez votre clé API Mistral (ou appuyez sur Entrée pour le mode SIMULATION) : " USER_KEY
     echo "" # Saut de ligne après la saisie masquée
 
     if [ ! -z "$USER_KEY" ]; then
-        export GOOGLE_API_KEY="$USER_KEY"
-        echo -e "${GREEN}   -> Clé API configurée pour cette session.${NC}"
+        export MISTRAL_API_KEY="$USER_KEY"
+        echo -e "${GREEN}   -> Clé API Mistral configurée pour cette session.${NC}"
     else
         echo -e "${YELLOW}   -> Aucune clé fournie. Le pipeline utilisera le mode SIMULATION (Fallback).${NC}"
     fi
 else
-    echo -e "${GREEN}[CONFIG] Clé API détectée dans l'environnement.${NC}"
+    echo -e "${GREEN}[CONFIG] Clé API Mistral détectée dans l'environnement.${NC}"
 fi
 
 echo ""
@@ -58,19 +58,18 @@ if [ ! -f "src/main/resources/$FILE_INPUT" ]; then
 fi
 
 echo -e "\n${GREEN}[STEP 1] Compilation du projet Java...${NC}"
-# On compile (sans le -q pour voir les erreurs de compilation si ça plante)
+# On compile (mvn clean compile pour être sûr d'avoir les dernières modifs)
 mvn clean compile
 
 echo -e "\n${GREEN}[STEP 2] Exécution du Workflow...${NC}"
 echo -e "${BLUE}-----------------------------------------------------${NC}"
 
 # Exécution avec exec:java
-# Note : On passe la clé API à la JVM via l'environnement du shell courant (export fait plus haut)
+# Maven héritera de la variable MISTRAL_API_KEY exportée plus haut
 mvn -q exec:java \
     -Dexec.mainClass="org.example.MainWorkflow" \
     -Dexec.args="$FILE_INPUT"
 
-# Le code de retour est géré par 'set -e', mais on affiche un message de fin
 echo -e "${BLUE}-----------------------------------------------------${NC}"
 echo -e "${GREEN}   SUCCÈS : Pipeline terminé.${NC}"
 echo -e "${BLUE}==============================================${NC}"

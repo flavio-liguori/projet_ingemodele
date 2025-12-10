@@ -55,6 +55,7 @@ public class MainWorkflow {
         }
 
         System.out.println("\n=== FIN DU TRAITEMENT (" + (System.currentTimeMillis() - start) + "ms) ===");
+        System.exit(0);
     }
 
     private static void runPythonScript() {
