@@ -8,12 +8,14 @@ Ce projet implémente un pipeline d'Ingénierie Dirigée par les Modèles (IDM) 
 1. **Cloner le dépôt :**
 
 2. **Rendre le script exécutable :**
-   ```bash
-chmod +x run_pipeline.sh```
+ ```bash
+chmod +x run_pipeline.sh
+```
 
 3. **Mettre la clé api mistral en var d'environnement :**
    ```bash
-export MISTRAL_API_KEY="votre_cle_api_ici" ```
+export MISTRAL_API_KEY="votre_cle_api_ici"
+```
 
 
 
