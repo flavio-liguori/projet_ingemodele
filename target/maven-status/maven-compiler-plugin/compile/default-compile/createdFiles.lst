@@ -1,0 +1,5 @@
+org/example/RcaRunner.class
+org/example/MainWorkflow.class
+org/example/RefactoringAuto.class
+org/example/ModelExtractor.class
+org/example/RefactoringAuto$RefactoringAction.class

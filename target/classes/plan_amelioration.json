@@ -1,0 +1,17 @@
+[
+    {
+        "type": "HERITAGE",
+        "concept_name": "Personne",
+        "classes_concernees": [
+            "Developer",
+            "Manager"
+        ],
+        "elements_remontes": [
+            "name",
+            "salary",
+            "work()",
+            "rel_Types[is_primitive]"
+        ],
+        "raison": "Entit\u00e9s humaines avec ID."
+    }
+]

@@ -1,0 +1,18 @@
+FormalContext Classes
+| | name | salary | teamSize | work() | language |
+| Manager | x | x | x | x | |
+| Developer | x | x | | x | x |
+
+FormalContext Types
+| | is_primitive | is_object |
+| EString | x | |
+| EDouble | x | |
+| EInt | x | |
+
+RelationalContext dependencies
+source Classes
+target Types
+scaling exist
+| | EString | EDouble | EInt |
+| Manager | x | x | x |
+| Developer | x | x | |

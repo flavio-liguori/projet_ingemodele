@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<refactoring:Plan xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:refactoring="http://refactoring/1.0">
+  <actions xsi:type="refactoring:IntroduceAbstraction" newConceptName="Vehicule" targetClasses="Moto Voiture" movedAttributes="marque:EString vitesse:EInt demarrer()" structureType="ABSTRACT_CLASS"/>
+</refactoring:Plan>
